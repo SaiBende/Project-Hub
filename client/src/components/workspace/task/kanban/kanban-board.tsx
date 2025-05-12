@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { DndContext, closestCenter, useDraggable, useDroppable } from "@dnd-kit/core";
 import { getCurrentUserQueryFn, getAllTasksQueryFn, updateTaskStatusMutationFn } from "@/lib/api";
@@ -66,7 +65,7 @@ function KanbanBoard() {
       return { previousTasks };
     },
   
-    onError: (err, variables, context) => {
+    onError: (context: { previousTasks?: { tasks: TaskType[] } }) => {
       queryClient.setQueryData(
         ["all-tasks", workspaceId, currentUser?.user._id],
         context?.previousTasks
