@@ -6,9 +6,10 @@ export function DashboardSkeleton() {
     <div className="p-4">
       {/* Loader on top */}
       <div className="absolute inset-0 z-50 flex items-start pt-10 justify-center bg-[rgba(255,255,255,.01)]">
-        <div className="flex items-center space-x-2">
-          <Loader size="25px" className="animate-spin" />
-          <span className="text-sm font-medium">ProjectHub...</span>
+        {/* i want make loader at the center of page */}
+        <div className="flex items-center  justify-center  space-x-2">
+          <Loader size="60px" className="animate-spin" />
+          <span className="text-xl font-medium">Project Hub...</span>
         </div>
       </div>
 

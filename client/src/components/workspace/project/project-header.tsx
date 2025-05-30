@@ -31,6 +31,7 @@ const ProjectHeader = () => {
   // Fallback if no project data is found
   const projectEmoji = project?.emoji || "📊";
   const projectName = project?.name || "Untitled project";
+  const githuburl = project?.githuburl || "No GitHub URL available";
 
   const renderContent = () => {
     if (isPending) return <span>Loading...</span>;
@@ -39,6 +40,9 @@ const ProjectHeader = () => {
       <>
         <span>{projectEmoji}</span>
         {projectName}
+        <span className="text-sm text-muted-foreground">
+          {githuburl}
+        </span>
       </>
     );
   };

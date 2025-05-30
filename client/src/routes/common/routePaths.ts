@@ -3,9 +3,9 @@ export const isAuthRoute = (pathname: string): boolean => {
 };
 
 export const AUTH_ROUTES = {
-  SIGN_IN: "/sign-in",
-  SIGN_UP: "/sign-up",
-  GOOGLE_OAUTH_CALLBACK: "/google/oauth/callback",
+  SIGN_IN: "/auth/sign-in",
+  SIGN_UP: "/auth/sign-up",
+  GOOGLE_OAUTH_CALLBACK: "/auth/google/oauth/callback",
 };
 export const LANDING_ROUTES = {
   LANDING: "/",
@@ -18,6 +18,7 @@ export const PROTECTED_ROUTES = {
   PROJECT_DETAILS: "/workspace/:workspaceId/project/:projectId",
   KANBAN: "/workspace/:workspaceId/kanban",
   CALENDAR: "/workspace/:workspaceId/calendar",
+  GITHUB :"/workspace/:workspaceId/github"
 };
 
 export const BASE_ROUTE = {

@@ -11,13 +11,14 @@ import Calendar from "@/page/workspace/Calendar";
 import LandingPage from "@/page/landing/Landing";
 import { AUTH_ROUTES, BASE_ROUTE, LANDING_ROUTES, PROTECTED_ROUTES } from "./routePaths";
 import InviteUser from "@/page/invite/InviteUser";
+import Github from "@/page/workspace/Github";
 
 
 export const authenticationRoutePaths = [
   { path: AUTH_ROUTES.SIGN_IN, element: <SignIn /> },
   { path: AUTH_ROUTES.SIGN_UP, element: <SignUp /> },
   { path: AUTH_ROUTES.GOOGLE_OAUTH_CALLBACK, element: <GoogleOAuthFailure /> },
-  { path: LANDING_ROUTES.LANDING, element: <LandingPage /> }, 
+   
 ];
 
 export const protectedRoutePaths = [
@@ -27,12 +28,12 @@ export const protectedRoutePaths = [
   { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
   { path: PROTECTED_ROUTES.PROJECT_DETAILS, element: <ProjectDetails /> },
   { path: PROTECTED_ROUTES.KANBAN, element: <Kanban /> },
-  { path: PROTECTED_ROUTES.CALENDAR, element: <Calendar /> }
+  { path: PROTECTED_ROUTES.CALENDAR, element: <Calendar /> },
+  { path: PROTECTED_ROUTES.GITHUB, element : <Github/>}
   
 ];
 
 export const LandingRoutePaths = [
-
   { path: LANDING_ROUTES.LANDING, element: <LandingPage /> },
 ];
 

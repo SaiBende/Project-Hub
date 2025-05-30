@@ -24,6 +24,7 @@ const Header = () => {
     if (pathname.includes("/members")) return "Members";
     if (pathname.includes("/kanban")) return "Kanban";
     if(pathname.includes("/calendar")) return "Calendar";
+    if(pathname.includes("/github")) return "GitHub";
     return null; // Default label
   };
 

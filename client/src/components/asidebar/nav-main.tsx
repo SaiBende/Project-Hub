@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   CalendarDays,
   KanbanIcon,
+  GithubIcon,
 } from "lucide-react";
 import {
   SidebarGroup,
@@ -63,6 +64,11 @@ export function NavMain() {
       title: "Calendar",
       url: `/workspace/${workspaceId}/calendar`,
       icon: CalendarDays,
+    },
+    {
+      title: "Github",
+      url :`/workspace/${workspaceId}/github`,
+      icon : GithubIcon,
     },
 
     ...(canManageSettings

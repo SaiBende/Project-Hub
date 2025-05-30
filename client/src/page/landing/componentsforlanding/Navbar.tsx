@@ -35,8 +35,8 @@ const Navbar = () => {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-        <Button variant="outline" className="w-full text-gray-800 border-gray-300 hover:bg-gray-100" onClick={() => navigate("/sign-in")}>Sign In</Button>  
-        <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white" onClick={() => navigate("/sign-up")}>Sign Up</Button>
+        <Button variant="outline" className="w-full text-gray-800 border-gray-300 hover:bg-gray-100" onClick={() => navigate("/auth/sign-in")}>Sign In</Button>  
+        <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white" onClick={() => navigate("/auth/sign-up")}>Sign Up</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -71,8 +71,8 @@ const Navbar = () => {
               Testimonials
             </a>
             <div className="flex flex-col space-y-2 pt-2">
-              <Button variant="outline" className="w-full text-gray-800 border-gray-300 hover:bg-gray-100" onClick={() => navigate("/sign-in")}>Sign In</Button>  
-              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white" onClick={() => navigate("/sign-up")}>Sign Up</Button>
+              <Button variant="outline" className="w-full text-gray-800 border-gray-300 hover:bg-gray-100" onClick={() => navigate("/auth/sign-in")}>Sign In</Button>   
+              <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white" onClick={() => navigate("/auth/sign-up")}>Sign Up</Button>
             </div>
           </div>
         </div>

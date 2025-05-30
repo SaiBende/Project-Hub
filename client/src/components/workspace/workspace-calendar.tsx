@@ -33,28 +33,7 @@ const getEventStyle = (task: TaskType) => {
 };
 
 
-// Helper to determine background color based on priority and status
-// const getEventStyle = (task: TaskType) => {
-//   let backgroundColor = "#E5E7EB"; // default gray
-//   if (task.status === "DONE") backgroundColor = "#86EFAC"; // green
-//   else if (task.status === "IN_PROGRESS") backgroundColor = "#93C5FD"; // blue
-//   else if (task.status === "TODO") backgroundColor = "#FDE68A"; // yellow
 
-//   if (task.priority === "HIGH") backgroundColor = "#FCA5A5"; // red
-//   else if (task.priority === "MEDIUM") backgroundColor = "#FCD34D"; // amber
-//   else if (task.priority === "LOW") backgroundColor = "#6EE7B7"; // teal
-
-//   return {
-//     style: {
-//       backgroundColor,
-//       borderRadius: "8px",
-//       opacity: 0.9,
-//       color: "black",
-//       border: "1px solid #ccc",
-//       padding: "4px",
-//     },
-//   };
-// };
 
 const CalendarBox: FC = () => {
   const params = useParams();
@@ -96,7 +75,7 @@ const CalendarBox: FC = () => {
             events={calendarEvents}
             startAccessor="start"
             endAccessor="end"
-            views={["month", "week", "day"]}
+            views={["month"]}
             style={{ height: 600 }}
             popup
             popupOffset={{ x: 30, y: 20 }} // so "more" popup doesn't look cramped

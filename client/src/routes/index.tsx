@@ -5,6 +5,8 @@ import {
   authenticationRoutePaths,
   baseRoutePaths,
 
+  LandingRoutePaths,
+
   protectedRoutePaths,
 } from "./common/routes";
 import AppLayout from "@/layout/app.layout";
@@ -22,7 +24,7 @@ function AppRoutes() {
           ))}
         </Route>
 
-        <Route path="/" element={<AuthRoute />}>
+        <Route path="/auth" element={<AuthRoute />}>
           <Route element={<BaseLayout />}>
             {authenticationRoutePaths.map((route) => (
               <Route
@@ -33,9 +35,18 @@ function AppRoutes() {
             ))}
           </Route>
         </Route>
-
         
-        
+        <Route path="/"  element={<AuthRoute />}>
+          <Route>
+            {LandingRoutePaths.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
+          </Route>
+        </Route>
 
         {/* Protected Route */}
         <Route path="/" element={<ProtectedRoute />}>
