@@ -5,9 +5,7 @@ import useWorkspaceId from "@/hooks/use-workspace-id";
 import { TaskType } from "@/types/api.type";
 import { Info } from "lucide-react";
 import type { DragEndEvent } from "@dnd-kit/core";
-import { useState } from "react";
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import TaskCardBig from "@/components/resuable/task-card";
+
 
 const columns = ["BACKLOG", "TODO", "IN_PROGRESS", "IN_REVIEW", "DONE"];
 
@@ -15,9 +13,7 @@ function KanbanBoard() {
   const workspaceId = useWorkspaceId();
   const queryClient = useQueryClient();
 
-  // State for dialog
-  const [selectedTask, setSelectedTask] = useState<TaskType | null>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
+  
 
   const { data: tasksData } = useQuery({
     queryKey: ["all-tasks", workspaceId],
@@ -94,10 +90,7 @@ function KanbanBoard() {
     });
   };
 
-  const handleTaskClick = (task: TaskType) => {
-    setSelectedTask(task);
-    setDialogOpen(true);
-  };
+ 
 
   return (
     <>
@@ -108,21 +101,12 @@ function KanbanBoard() {
               key={status}
               id={status}
               tasks={groupedTasks[status] || []}
-              onTaskClick={handleTaskClick}
+              
             />
           ))}
         </div>
       </DndContext>
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-lg">
-          {selectedTask && (
-            <>
-              
-              <TaskCardBig task={selectedTask} onClose={() => setDialogOpen(false)} />
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+      
     </>
   );
 }
@@ -130,11 +114,11 @@ function KanbanBoard() {
 function Column({
   id,
   tasks,
-  onTaskClick,
+
 }: {
   id: string;
   tasks: TaskType[];
-  onTaskClick: (task: TaskType) => void;
+  
 }) {
   const { setNodeRef } = useDroppable({ id });
 
@@ -143,7 +127,7 @@ function Column({
       <h2 className="text-lg font-semibold mb-2">{id}</h2>
       {tasks.length > 0 ? (
         tasks.map((task) => (
-          <TaskCard key={task._id} task={task} onClick={() => onTaskClick(task)} />
+          <TaskCard key={task._id} task={task}  />
         ))
       ) : (
         <p className="text-sm text-gray-400">No tasks</p>
