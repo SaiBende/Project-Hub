@@ -47,10 +47,7 @@ app.use(
     credentials: true,
   })
 );
-app.listen(config.PORT, async () => {
-  console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`);
-  await connectDatabase();
-});
+
 
 app.get(
   `/`,
