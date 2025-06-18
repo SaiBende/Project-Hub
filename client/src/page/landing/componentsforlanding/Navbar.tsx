@@ -2,6 +2,7 @@ import  { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useNavigate } from "react-router";
+import Logo from "@/components/logo";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +18,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
+          <div className="mr-4">
+            <Logo url={'/'}  />
+          </div>
+          
           <h1 className="text-xl font-bold text-gray-800">Project Hub</h1>
         </div>
 
