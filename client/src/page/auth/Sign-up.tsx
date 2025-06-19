@@ -57,7 +57,7 @@ const SignUp = () => {
     if (isPending) return;
     mutate(values, {
       onSuccess: () => {
-        navigate("/");
+        navigate("/auth/sign-in");
       },
       onError: (error) => {
         console.log(error);
