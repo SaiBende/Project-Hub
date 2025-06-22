@@ -31,6 +31,7 @@ app.use(
   session({
     name: "session",
     keys: [config.SESSION_SECRET],
+    path: "/",
     maxAge: 24 * 60 * 60 * 1000,
     secure: config.NODE_ENV === "production",
     httpOnly: true,
