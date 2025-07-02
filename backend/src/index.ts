@@ -44,7 +44,11 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: config.FRONTEND_ORIGIN,
+    origin: [
+      config.FRONTEND_ORIGIN,
+      "https://pro-hub.vercel.app",
+      "http://localhost:5173"
+    ].filter(Boolean),
     credentials: true,
   })
 );
