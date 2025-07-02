@@ -30,6 +30,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_session_1.default)({
     name: "session",
     keys: [app_config_1.config.SESSION_SECRET],
+    path: "/",
     maxAge: 24 * 60 * 60 * 1000,
     secure: app_config_1.config.NODE_ENV === "production",
     httpOnly: true,
