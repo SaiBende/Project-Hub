@@ -7,14 +7,16 @@ const AuthRoute = () => {
   const location = useLocation();
   const { data: authData, isLoading } = useAuth();
   const user = authData?.user;
+  console.log("AuthRoute user:", user);
 
   const _isAuthRoute = isAuthRoute(location.pathname);
+  console.log("Is Auth Route:", _isAuthRoute);
 
   if (isLoading && !_isAuthRoute) return <DashboardSkeleton />;
 
   if (!user) return <Outlet />;
 
-  return <Navigate to={`workspace/${user.currentWorkspace?._id}`} replace />;
+  return <Navigate to={`/workspace/${user.currentWorkspace?._id}`} replace />;
 };
 
 export default AuthRoute;

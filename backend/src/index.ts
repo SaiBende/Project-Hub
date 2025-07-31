@@ -31,11 +31,11 @@ app.use(
   session({
     name: "session",
     keys: [config.SESSION_SECRET],
-    path:"/",
+    path: "/",
     maxAge: 24 * 60 * 60 * 1000,
-    secure: true,
+    secure: config.NODE_ENV === "production",
     httpOnly: true,
-    sameSite: "none",
+    sameSite: config.NODE_ENV === "production" ? "none" : "lax",
   })
 );
 
