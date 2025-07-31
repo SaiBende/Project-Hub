@@ -34,12 +34,16 @@ app.use((0, cookie_session_1.default)({
     maxAge: 24 * 60 * 60 * 1000,
     secure: app_config_1.config.NODE_ENV === "production",
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: app_config_1.config.NODE_ENV === "production" ? "none" : "lax",
 }));
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
 app.use((0, cors_1.default)({
-    origin: app_config_1.config.FRONTEND_ORIGIN,
+    origin: [
+        app_config_1.config.FRONTEND_ORIGIN,
+        "https://pro-hub.vercel.app",
+        "http://localhost:5173"
+    ].filter(Boolean),
     credentials: true,
 }));
 app.get(`/`, (0, asyncHandler_middleware_1.asyncHandler)(async (req, res, next) => {
