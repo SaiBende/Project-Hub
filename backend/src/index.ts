@@ -38,6 +38,7 @@ app.use(
     sameSite: "lax",
   })
 );
+app.set("trust proxy", true); // trust first proxy for secure cookies in production
 
 app.use(passport.initialize());
 app.use(passport.session());
