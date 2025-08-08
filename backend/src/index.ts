@@ -32,7 +32,8 @@ app.use(
     origin: [
       config.FRONTEND_ORIGIN,
       "https://pro-hub.vercel.app",
-      "http://localhost:5173"
+      "http://localhost:5173",
+      "https://project-hub.saibende.dev"
     ].filter(Boolean),
     credentials: true,
   })

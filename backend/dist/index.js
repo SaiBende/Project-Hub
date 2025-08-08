@@ -27,6 +27,15 @@ const app = (0, express_1.default)();
 const BASE_PATH = app_config_1.config.BASE_PATH;
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.use((0, cors_1.default)({
+    origin: [
+        app_config_1.config.FRONTEND_ORIGIN,
+        "https://pro-hub.vercel.app",
+        "http://localhost:5173",
+        "https://project-hub.saibende.dev"
+    ].filter(Boolean),
+    credentials: true,
+}));
 app.use((0, cookie_session_1.default)({
     name: "session",
     keys: [app_config_1.config.SESSION_SECRET],
@@ -36,16 +45,9 @@ app.use((0, cookie_session_1.default)({
     httpOnly: true,
     sameSite: app_config_1.config.NODE_ENV === "production" ? "none" : "lax",
 }));
+app.set("trust proxy", true); // trust first proxy for secure cookies in production
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
-app.use((0, cors_1.default)({
-    origin: [
-        app_config_1.config.FRONTEND_ORIGIN,
-        "https://pro-hub.vercel.app",
-        "http://localhost:5173"
-    ].filter(Boolean),
-    credentials: true,
-}));
 app.get(`/`, (0, asyncHandler_middleware_1.asyncHandler)(async (req, res, next) => {
     throw new appError_1.BadRequestException("This is a bad request", error_code_enum_1.ErrorCodeEnum.AUTH_INVALID_TOKEN);
     return res.status(http_config_1.HTTPSTATUS.OK).json({
