@@ -1,5 +1,7 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
 
 const Hero = () => {
   return (
@@ -15,7 +17,7 @@ const Hero = () => {
             </p>
             <div>
               <Button size="lg" className="bg-gray-800 hover:bg-gray-700 text-white text-base px-8 py-6">
-                Get Started Free
+               <Link to="/auth/sign-up">Get Started Free</Link>
               </Button>
             </div>
           </div>

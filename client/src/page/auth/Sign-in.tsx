@@ -1,4 +1,4 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -29,7 +29,7 @@ import { Loader } from "lucide-react";
 const SignIn = () => {
   const navigate = useNavigate();
   //const [searchParams] = useSearchParams();
- // const returnUrl = searchParams.get("returnUrl");
+  // const returnUrl = searchParams.get("returnUrl");
 
   const { mutate, isPending } = useMutation({
     mutationFn: loginMutationFn,
@@ -59,12 +59,18 @@ const SignIn = () => {
       onSuccess: (data) => {
         const user = data.user;
         console.log(user);
-       // const decodedUrl = returnUrl ? decodeURIComponent(returnUrl) : null;
+        // const decodedUrl = returnUrl ? decodeURIComponent(returnUrl) : null;
         navigate(`/workspace/${user.currentWorkspace}`);
-      },
-      onError: (error) => {
         toast({
-          title: "Error",
+          title: "Sign In Successfully",
+          variant: "success",
+          description: "Welcome back to your workspace!",
+        });
+
+      },
+      onError: (error ) => {
+        toast({
+          title: "Invalid Email or Password",
           description: error.message,
           variant: "destructive",
         });
@@ -80,7 +86,7 @@ const SignIn = () => {
           className="flex items-center gap-2 self-center font-medium"
         >
           <Logo />
-          Project Hub 
+          Project Hub
         </Link>
         <div className="flex flex-col gap-6">
           <Card>

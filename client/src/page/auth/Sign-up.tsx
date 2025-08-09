@@ -33,14 +33,14 @@ const SignUp = () => {
     mutationFn: registerMutationFn,
   });
   const formSchema = z.object({
-    name: z.string().trim().min(1, {
-      message: "Name is required",
+    name: z.string().trim().min(4, {
+      message: "Name is required and minimum length 4",
     }),
     email: z.string().trim().email("Invalid email address").min(1, {
       message: "Workspace name is required",
     }),
-    password: z.string().trim().min(1, {
-      message: "Password is required",
+    password: z.string().trim().min(4, {
+      message: "Password is required and minimum length 4",
     }),
   });
 
@@ -60,9 +60,8 @@ const SignUp = () => {
         navigate("/auth/sign-in");
       },
       onError: (error) => {
-        console.log(error);
         toast({
-          title: "Error",
+          title: "Invalid Inputs and Please try again",
           description: error.message,
           variant: "destructive",
         });

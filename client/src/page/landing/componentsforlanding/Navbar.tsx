@@ -1,7 +1,7 @@
 import  { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "@/components/logo";
 
 const Navbar = () => {
@@ -18,24 +18,25 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
+         
           <div className="mr-4">
             <Logo url={'/'}  />
           </div>
+          <Link to="/"><h1 className="text-xl font-bold text-gray-800">Project Hub</h1></Link>
           
-          <h1 className="text-xl font-bold text-gray-800">Project Hub</h1>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
+          <Link to="/#features" className="text-gray-600 hover:text-gray-900 transition-colors">
             Features
-          </a>
-          <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors">
+          </Link>
+          <Link to="/#benefits" className="text-gray-600 hover:text-gray-900 transition-colors">
             Benefits
-          </a>
-          <a href="#testimonials" className="text-gray-600 hover:text-gray-900 transition-colors">
+          </Link>
+          <Link to="/#testimonials" className="text-gray-600 hover:text-gray-900 transition-colors">
             Testimonials
-          </a>
+          </Link>
         </nav>
 
         {/* CTA Buttons */}
@@ -54,27 +55,27 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <a 
-              href="#features" 
+            <Link 
+              to="/#features" 
               className="text-gray-600 hover:text-gray-900 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Features
-            </a>
-            <a 
-              href="#benefits" 
+            </Link>
+            <Link
+              to="/#benefits" 
               className="text-gray-600 hover:text-gray-900 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Benefits
-            </a>
-            <a 
-              href="#testimonials" 
+            </Link>
+            <Link
+              to="/#testimonials"
               className="text-gray-600 hover:text-gray-900 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
-            </a>
+            </Link>
             <div className="flex flex-col space-y-2 pt-2">
               <Button variant="outline" className="w-full text-gray-800 border-gray-300 hover:bg-gray-100" onClick={() => navigate("/auth/sign-in")}>Sign In</Button>   
               <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white" onClick={() => navigate("/auth/sign-up")}>Sign Up</Button>
