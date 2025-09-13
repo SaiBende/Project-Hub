@@ -1,4 +1,5 @@
 
+import CreateTaskDialog from '@/components/workspace/task/create-task-dialog'
 import CalendarBox from '@/components/workspace/workspace-calendar'
 function Calendar() {
   return (
@@ -10,6 +11,7 @@ function Calendar() {
           Here&apos;s the Calendar for this workspace!
         </p>
       </div>
+      <CreateTaskDialog />
 
     </div>
     {/* {Task Table} */}

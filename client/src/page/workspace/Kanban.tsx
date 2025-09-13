@@ -14,7 +14,7 @@ function Kanban() {
       </div>
       <CreateTaskDialog />
     </div>
-    {/* {Task Table} */}
+    {/* {Kanban Table} */}
     <div>
       <KanbanBoard />
     </div>

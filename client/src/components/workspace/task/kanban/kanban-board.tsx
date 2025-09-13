@@ -5,6 +5,7 @@ import useWorkspaceId from "@/hooks/use-workspace-id";
 import { TaskType } from "@/types/api.type";
 import { Info } from "lucide-react";
 import type { DragEndEvent } from "@dnd-kit/core";
+import CreateTaskDialog from "../create-task-dialog";
 
 
 const columns = ["BACKLOG", "TODO", "IN_PROGRESS", "IN_REVIEW", "DONE"];
@@ -91,6 +92,7 @@ function KanbanBoard() {
   };
 
  
+ 
 
   return (
     <>
@@ -122,15 +124,22 @@ function Column({
 }) {
   const { setNodeRef } = useDroppable({ id });
 
+   
   return (
     <div ref={setNodeRef} className="bg-gray-100 rounded-lg p-3 shadow-sm min-h-[200px]">
       <h2 className="text-lg font-semibold mb-2">{id}</h2>
       {tasks.length > 0 ? (
         tasks.map((task) => (
+          <div className="">
           <TaskCard key={task._id} task={task}  />
+         <CreateTaskDialog />
+        </div>
         ))
       ) : (
+        <div className="flex flex-col items-center justify-center h-full space-y-2">
         <p className="text-sm text-gray-400">No tasks</p>
+        <CreateTaskDialog  />
+        </div>
       )}
     </div>
   );
