@@ -8,6 +8,7 @@ import type { DragEndEvent } from "@dnd-kit/core";
 import CreateTaskDialog from "../create-task-dialog";
 
 
+
 const columns = ["BACKLOG", "TODO", "IN_PROGRESS", "IN_REVIEW", "DONE"];
 
 function KanbanBoard() {
@@ -132,15 +133,16 @@ function Column({
         tasks.map((task) => (
           <div className="">
           <TaskCard key={task._id} task={task}  />
-         <CreateTaskDialog />
+         
         </div>
         ))
       ) : (
-        <div className="flex flex-col items-center justify-center h-full space-y-2">
+        
         <p className="text-sm text-gray-400">No tasks</p>
-        <CreateTaskDialog  />
-        </div>
+       
+        
       )}
+      <CreateTaskDialog  />
     </div>
   );
 }
